@@ -8,11 +8,8 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
-  // devServer: {
-  //   historyApiFallback: true
-  // },
+
   devServer: {
-    //historyApiFallback: true,
     contentBase: path.join(__dirname, "dist")
   },
 
@@ -20,10 +17,20 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "*"]
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        include: /src/,
+        loaders: ["babel-loader"]
+      }
+    ]
+  },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "index.html",
       title: "Pizza List"
     })
   ]
