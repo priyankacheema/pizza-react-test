@@ -12,11 +12,7 @@ function renderList(pizzas = []) {
 
 class PizzaList extends React.Component {
   render() {
-    return (
-      <main>
-        <ul className="pizza-list">{renderList(this.props.pizzas)}</ul>
-      </main>
-    );
+    return <ul className="pizza-list">{renderList(this.props.pizzas)}</ul>;
   }
 }
 

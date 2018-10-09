@@ -9,7 +9,7 @@ class SearchForm extends Component {
     return (
       <div className="sort-filter-components">
         <input className="search-input" />
-        <button className="search-button" onClick={this.props.handleSort}>
+        <button className="sort-button" onClick={this.props.handleSort}>
           Sort
         </button>
       </div>

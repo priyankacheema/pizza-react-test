@@ -1,5 +1,29 @@
 {
   "name": "pizza-react-test",
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/src/index.js"
+    ]
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,9 +47,13 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -42,6 +70,7 @@
     "jest-cli": "^23.6.0",
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.5.2",
+    "regenerator-runtime": "^0.12.1",
     "sinon": "^6.3.5",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
@@ -51,6 +80,7 @@
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-native": "^0.57.2"
   }
 }
