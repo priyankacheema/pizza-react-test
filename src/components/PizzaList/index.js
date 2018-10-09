@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 function renderList(pizzas = []) {
   if (Array.isArray(pizzas)) {
     return pizzas.map(pizza => {
-      return <li key={pizza}>{pizza}</li>;
+      return (
+        <li className="pizza-list-item" key={pizza}>
+          {pizza}
+        </li>
+      );
     });
   } else {
     return <p>Sorry... No Pizza available for you today!</p>;

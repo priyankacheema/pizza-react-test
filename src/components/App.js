@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 import FilterForm from "./FilterForm";
 import PizzaList from "./PizzaList/index";
 import { fetchPizzasList } from "../api/pizza";
@@ -44,6 +43,7 @@ class App extends Component {
     } else {
       return (
         <main>
+          <div className="fun-label">Pizzas Battle!!!</div>
           <FilterForm
             handleSort={this.handleSort}
             handleFilter={this.handleFilter}

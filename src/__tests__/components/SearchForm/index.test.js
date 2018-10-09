@@ -17,8 +17,8 @@ describe("Given SearchForm", () => {
     expect(component.is("div.sort-filter-components")).to.be.true();
   });
 
-  it('should contain an input with class "search-input"', () => {
-    expect(component.find("input.search-input")).to.have.length(1);
+  it('should contain an input with class "filter-input"', () => {
+    expect(component.find("input.filter-input")).to.have.length(1);
   });
 
   it('should contain a <button> with class "sort-button" and text "Sort"', () => {

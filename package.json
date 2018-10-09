@@ -19,6 +19,7 @@
       "shared"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!<rootDir>/src/index.js"
