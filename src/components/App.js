@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import SearchForm from "./SearchForm";
+import { render } from "react-dom";
+import FilterForm from "./FilterForm";
 import PizzaList from "./PizzaList/index";
 import { fetchPizzasList } from "../api/pizza";
 
@@ -7,26 +8,34 @@ class App extends Component {
   state = {
     isLoad: false,
     pizzas: [],
-    order: "ascending"
+    filteredPizzas: []
   };
 
   componentDidMount() {
     fetchPizzasList().then(res => {
       this.setState({
         pizzas: res.pizzas,
+        filteredPizzas: res.pizzas,
         isLoad: true
       });
     });
   }
 
   handleSort = () => {
-    const arrPizzas = this.state.pizzas;
-    this.state.pizzas = [...arrPizzas].sort(
-      (a, b) => (a.toLowerCase() > b.toLowerCase() ? 1 : -1)
-    );
+    const arrPizzas = this.state.filteredPizzas;
     this.setState({
-      order: this.state.order === "ascending" ? "descending" : "ascending"
+      filteredPizzas: [...arrPizzas].sort(
+        (a, b) => (a.toLowerCase() > b.toLowerCase() ? 1 : -1)
+      )
     });
+  };
+
+  handleFilter = e => {
+    const arrPizzas = this.state.pizzas;
+    const newChangedArr = arrPizzas.filter(pizza =>
+      pizza.toLowerCase().match(e.currentTarget.value)
+    );
+    this.setState({ filteredPizzas: newChangedArr });
   };
 
   render() {
@@ -35,11 +44,11 @@ class App extends Component {
     } else {
       return (
         <main>
-          <SearchForm
+          <FilterForm
             handleSort={this.handleSort}
-            handleChange={this.handleChange}
+            handleFilter={this.handleFilter}
           />
-          <PizzaList pizzas={this.state.pizzas} />
+          <PizzaList pizzas={this.state.filteredPizzas} />
         </main>
       );
     }

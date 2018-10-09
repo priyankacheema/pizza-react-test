@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function renderList(pizzas = []) {
   if (Array.isArray(pizzas)) {
@@ -10,10 +11,15 @@ function renderList(pizzas = []) {
   }
 }
 
-class PizzaList extends React.Component {
-  render() {
-    return <ul className="pizza-list">{renderList(this.props.pizzas)}</ul>;
-  }
-}
+const PizzaList = props => {
+  return <ul className="pizza-list">{renderList(props.pizzas)}</ul>;
+};
+
+PizzaList.propTypes = {
+  repos: PropTypes.oneOfType([
+    PropTypes.array.isRequired,
+    PropTypes.object.isRequired
+  ])
+};
 
 export default PizzaList;
