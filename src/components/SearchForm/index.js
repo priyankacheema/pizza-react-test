@@ -5,21 +5,14 @@ class SearchForm extends Component {
     searchText: ""
   };
 
-  handleChange = e => {
-    const searchText = e.target.value;
-    this.setState({ searchText });
-  };
-
   render() {
     return (
-      <form className="search-form">
-        <input
-          className="search-input"
-          value={this.state.searchText}
-          onChange={this.handleChange}
-        />
-        <button className="search-button">Sort</button>
-      </form>
+      <div className="sort-filter-components">
+        <input className="search-input" />
+        <button className="search-button" onClick={this.props.handleSort}>
+          Sort
+        </button>
+      </div>
     );
   }
 }
