@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import FilterForm from "./FilterForm";
 import PizzaList from "./PizzaList/index";
 import { fetchPizzasList } from "../api/pizza";
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 class App extends Component {
   state = {
@@ -27,6 +29,7 @@ class App extends Component {
         (a, b) => (a.toLowerCase() > b.toLowerCase() ? 1 : -1)
       )
     });
+    console.log(arrPizzas);
   };
 
   handleFilter = e => {
@@ -43,7 +46,8 @@ class App extends Component {
     } else {
       return (
         <main>
-          <div className="fun-label">Pizzas Battle!!!</div>
+          <div className="fun-label">Pizza's Battle!</div>
+
           <FilterForm
             handleSort={this.handleSort}
             handleFilter={this.handleFilter}
